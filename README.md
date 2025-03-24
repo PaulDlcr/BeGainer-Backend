@@ -44,4 +44,6 @@ npm test
 
 ## API Endpoints
 
-- `GET /`: Welcome message 
+- `GET /`: Welcome message
+- `POST /api/auth/register`: Register a user
+- `POST /api/auth/login`: Login a user
