@@ -1,5 +1,6 @@
 import { DataSource } from 'typeorm';
 import { User } from '../entities/User';
+import { Exercise } from '../entities/Exercise';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -11,9 +12,9 @@ export const AppDataSource = new DataSource({
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
-  synchronize: process.env.NODE_ENV === 'development', // Set to false in production
+  synchronize: false, // Disable synchronize to use migrations
   logging: process.env.NODE_ENV === 'development',
-  entities: [User],
+  entities: [User, Exercise],
   migrations: ['src/migrations/*.ts'],
   subscribers: ['src/subscribers/*.ts'],
   ssl: {
