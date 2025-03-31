@@ -5,6 +5,7 @@ import helmet from 'helmet';
 import dotenv from 'dotenv';
 import { AppDataSource } from './config/data-source';
 import authRoutes from './routes/auth';
+import exerciseRoutes from './routes/exercise';
 
 // Load environment variables
 dotenv.config();
@@ -27,6 +28,7 @@ app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/exercises', exerciseRoutes);
 
 // Basic route
 app.get('/', (req, res) => {
