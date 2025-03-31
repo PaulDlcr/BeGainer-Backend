@@ -13,10 +13,11 @@ export const AppDataSource = new DataSource({
   database: process.env.DB_DATABASE,
   synchronize: process.env.NODE_ENV === 'development', // Set to false in production
   logging: process.env.NODE_ENV === 'development',
-  entities: [__dirname + '/../entities/*.js'], // Chargement dynamique en prod
-  migrations: [__dirname + '/../migrations/*.js'],
-  subscribers: [__dirname + '/../subscribers/*.js'],
+  entities: [__dirname + '/../dist/entities/*.js'],
+  migrations: [__dirname + '/../dist/migrations/*.js'],
   ssl: {
     rejectUnauthorized: false,
   },
 }); 
+console.log('NODE_ENV:', process.env.NODE_ENV);
+console.log('Entities:', AppDataSource.options.entities);
