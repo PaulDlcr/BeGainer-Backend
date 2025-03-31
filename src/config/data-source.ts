@@ -15,8 +15,8 @@ export const AppDataSource = new DataSource({
   synchronize: process.env.NODE_ENV === 'development', // Set to false in production
   logging: process.env.NODE_ENV === 'development',
   entities: [User, Exercise],
-  migrations: ['src/migrations/*.ts'],
-  subscribers: ['src/subscribers/*.ts'],
+  migrations: process.env.NODE_ENV === 'development' ? ['src/migrations/*.ts'] : ['dist/migrations/*.js'],
+  subscribers: process.env.NODE_ENV === 'development' ? ['src/subscribers/*.ts'] : ['dist/subscribers/*.js'],
   ssl: {
     rejectUnauthorized: false,
   },
