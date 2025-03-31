@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "src/index.ts",
+      "use": "@vercel/node"
+    }
+  ],
+  "env": {
+    "DB_PORT": "5432",
+    "DB_USERNAME": "neondb_owner",
+    "DB_PASSWORD": "npg_CUxRy2SzFb1Q",
+    "DB_HOST": "ep-rough-term-a2bjsvpz-pooler.eu-central-1.aws.neon.tech",
+    "DB_DATABASE": "begainer",
+    "NODE_ENV": "production"
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/src/index.ts"
+    }
+  ]
+}
